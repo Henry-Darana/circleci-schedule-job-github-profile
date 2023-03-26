@@ -32,7 +32,7 @@ jobs:
           when: always
       - run:
           name: Compress Artifacts
-          command: tar -cvzf gradle-test-report.tar ~/build/reports/
+          command: tar -cvzf gradle-test-report.tar ~/build/reports/tests/test
       - store_artifacts:
           path: gradle-test-report.tar
           destination: gradle-test-report
