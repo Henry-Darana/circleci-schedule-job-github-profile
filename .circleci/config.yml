@@ -23,7 +23,7 @@ jobs:
             find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
           when: always
       - store_test_results:
-          path: ~/test-results
+          path: ~/test-results/junit
       - run:
           name: Creating Dummy Artifacts
           command: |
@@ -34,7 +34,7 @@ jobs:
           path: /tmp/art-1
           destination: artifact-file
       - store_artifacts:
-          path: /tmp/artifacts
+          path: ~/reports
 
 
 workflows:
