@@ -25,17 +25,11 @@ jobs:
       - store_test_results:
           path: ~/test-results
       - run:
-          name: Save Test Artifacts
-          command: |
-            mkdir -p ~/test-artifacts/
-            find . -type f -regex ".*/build/reports/.*" -exec cp {} ~/test-artifacts/ \;
-          when: always
-      - run:
           name: Compress Artifacts
-          command: tar -cvzf gradle-test-report.tar .*/build/reports/tests/
+          command: tar -cvzf gradle-test-report.tar .*/tests/
       - store_artifacts:
           path: gradle-test-report.tar
-          destination: gradle-test-report
+          destination: gradle-test-report.tar
 
 
 workflows:
