@@ -23,18 +23,18 @@ jobs:
             find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
           when: always
       - store_test_results:
-          path: ~/test-results/junit
+          path: ~/test-results
       - run:
-          name: Creating Dummy Artifacts
+          name: Save Test Artifacts
           command: |
-            echo "my artifact file" > /tmp/art-1;
-            mkdir /tmp/artifacts;
-            echo "my artifact files in a dir" > /tmp/artifacts/art-2;
+            mkdir -p ~/test-artifacts/
+            find . -type -regex ".*/build/reports/.*" -exec cp {} ~/test-artifacts/ \;
+          when: always
       - store_artifacts:
           path: /tmp/art-1
           destination: artifact-file
       - store_artifacts:
-          path: ~/reports
+          path: ~/test-artifacts
 
 
 workflows:
