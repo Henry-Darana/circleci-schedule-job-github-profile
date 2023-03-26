@@ -30,12 +30,12 @@ jobs:
             mkdir -p ~/test-artifacts/
             find . -type f -regex ".*/build/reports/.*" -exec cp {} ~/test-artifacts/ \;
           when: always
-#      - run:
-#          name: Compress Artifacts
-#          command: tar -cvzf gradle-test-report.tar ~/build/reports/tests/test
-#      - store_artifacts:
-#          path: gradle-test-report.tar
-#          destination: gradle-test-report
+      - run:
+          name: Compress Artifacts
+          command: tar -cvzf gradle-test-report.tar .*/build/reports/tests/
+      - store_artifacts:
+          path: gradle-test-report.tar
+          destination: gradle-test-report
 
 
 workflows:
