@@ -28,7 +28,7 @@ jobs:
           name: Save Test Artifacts
           command: |
             mkdir -p ~/test-artifacts/
-            find . -type -regex ".*/build/reports/.*" -exec cp {} ~/test-artifacts/ \;
+            find . -type f -regex ".*/build/reports/.*" -exec cp {} ~/test-artifacts/ \;
           when: always
       - store_artifacts:
           path: /tmp/art-1
