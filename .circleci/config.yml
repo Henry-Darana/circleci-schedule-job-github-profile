@@ -28,4 +28,4 @@ jobs:
 workflows:
   test-tray-workflow:
     jobs:
-- build-and-test
+    - build-and-test
