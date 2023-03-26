@@ -24,6 +24,11 @@ jobs:
           when: always
       - store_test_results:
           path: ~/test-results
+#      - store_artifacts:
+#          path: /tmp/art-1
+#          destination: artifact-file
+      - store_artifacts:
+          path: ~/reports
 
 workflows:
   version: 2
