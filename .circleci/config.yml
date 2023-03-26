@@ -29,14 +29,44 @@ workflows:
   version: 2
   test-tray-workflow:
     jobs:
-    - build-and-test
-  schedule-workflow:
+      - build-and-test
+  zero-minute-schedule-workflow:
     triggers:
       - schedule:
-          cron: "5 * * * *"
+          cron: "0 * * * *"
           filters:
             branches:
-                only:
-                  - master
+              only:
+                -master
+    jobs:
+      - build-and-test
+  fifteen-minute-schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "15 * * * *"
+          filters:
+            branches:
+              only:
+                -master
+    jobs:
+      - build-and-test
+  thirty-minute-schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "30 * * * *"
+          filters:
+            branches:
+              only:
+                -master
+    jobs:
+      - build-and-test
+  fourty-five-minute-schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "45 * * * *"
+          filters:
+            branches:
+              only:
+                -master
     jobs:
       - build-and-test
