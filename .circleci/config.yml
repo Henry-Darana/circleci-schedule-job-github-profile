@@ -29,3 +29,13 @@ workflows:
   test-tray-workflow:
     jobs:
     - build-and-test
+  schedule-workflow:
+    trigger:
+      - schedule:
+          cron: "*/5 * * * *"
+          filters:
+            branches:
+                only:
+                  - master
+    jobs:
+      - build-and-test
