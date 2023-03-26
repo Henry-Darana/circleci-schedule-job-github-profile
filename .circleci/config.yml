@@ -26,6 +26,7 @@ jobs:
           path: ~/test-results
 
 workflows:
+  version: 2
   test-tray-workflow:
     jobs:
     - build-and-test
