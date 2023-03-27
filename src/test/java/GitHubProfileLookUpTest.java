@@ -54,7 +54,7 @@ public class GitHubProfileLookUpTest {
     @DataProvider(name = "hack-provider")
     public Object[][] hackProvider() {
         Object[][] counter = new Object[100][1];
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 80; i++) {
             counter[i][0] = i;
         }
         return counter;
