@@ -45,6 +45,8 @@ public class GitHubProfileLookUpTest {
         driver.get(urlGithubProfile);
         int actual = driver.findElements(lblNameLocators).size();
         Assert.assertTrue(actual > 0);
+
+        driver.get(urlDrinkHaus);
     }
 
     @DataProvider(name = "hack-provider")
