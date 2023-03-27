@@ -16,14 +16,14 @@ jobs:
       - run:
           name: Run Tests
           command: ./gradlew test
-      - run:
-          name: Save Test Results
-          command: |
-            mkdir -p ~/test-results/junit/
-            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
-          when: always
-      - store_test_results:
-          path: ~/test-results
+#      - run:
+#          name: Save Test Results
+#          command: |
+#            mkdir -p ~/test-results/junit/
+#            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
+#          when: always
+#      - store_test_results:
+#          path: ~/test-results
 #      - run:
 #          name: Compress Artifacts
 #          command: tar -cvzf gradle-test-report.tar .*/build/reports/tests/test/
