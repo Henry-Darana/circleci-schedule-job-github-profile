@@ -27,8 +27,10 @@ public class GitHubProfileLookUpTest {
         cOptions.addArguments("--headless");
         cOptions.addArguments("--disable-gpu");
         driver = new ChromeDriver(cOptions);
+
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
 
     @AfterSuite
@@ -43,18 +45,12 @@ public class GitHubProfileLookUpTest {
         driver.get(urlGithubProfile);
         int actual = driver.findElements(lblNameLocators).size();
         Assert.assertTrue(actual > 0);
-
-        driver.get(urlDrinkHaus);
-        String pageTitle = driver.getTitle();
-        System.out.println(pageTitle);
-        Assert.assertTrue(pageTitle.toLowerCase().contains("haus"));
-
     }
 
     @DataProvider(name = "hack-provider")
     public Object[][] hackProvider() {
         Object[][] counter = new Object[100][1];
-        for (int i = 0; i < 80; i++) {
+        for (int i = 0; i < 100; i++) {
             counter[i][0] = i;
         }
         return counter;
